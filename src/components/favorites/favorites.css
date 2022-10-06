@@ -19,6 +19,7 @@
   height: 100%;
 }
 .favorite__remove{
+  cursor: pointer;
   position: absolute;
   bottom: 10px;
   right: 10px;

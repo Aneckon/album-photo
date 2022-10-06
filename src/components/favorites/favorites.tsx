@@ -9,6 +9,11 @@ export const Favorites = () => {
   const image = useSelector((state: any) => state.favoriteReducer.faviroteDate);
   const dispatch = useDispatch();
 
+  const handleRemoveImage = () => {
+    dispatch(removeFavirote(favorite.length ? JSON.parse(favorite).id : null));
+    localStorage.removeItem('favorite');
+  };
+
   useEffect(() => {
     setFavorite(localStorage.getItem('favorite'));
   }, []);
@@ -17,12 +22,8 @@ export const Favorites = () => {
     <div className="favorites">
       {localStorage.getItem('favorite') ? (
         <div className="favorites__item">
-          <img src={favorite.length ? JSON.parse(favorite).img : ''} alt="" />
-          <div
-            className="favorite__remove"
-            onClick={() =>
-              dispatch(removeFavirote(favorite.length ? JSON.parse(favorite).id : ''))
-            }>
+          <img src={favorite.length ? JSON.parse(favorite).img : null} alt="" />
+          <div className="favorite__remove" onClick={handleRemoveImage}>
             <img src="assets/remove.svg" alt="" />
           </div>
         </div>
