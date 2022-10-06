@@ -1,0 +1,88 @@
+.button{
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+.button__favorites{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 1111;
+}
+.button__favorites-none{
+  display: none;
+}
+.button__favorites::before{
+  content: '';
+  position: relative;
+  background: url('../../../public/assets/favorite.svg') no-repeat center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+.button__favorites::after{
+  position: absolute;
+  content: '';
+  border: 1px solid #69c0ff;
+  width: 0px;
+  height: 0px;
+  animation: 2s animationsFavorite infinite;
+  border-radius: 50%;
+}
+.button__close{
+  position: relative;
+  width: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
+.button__close::before{
+  content: '';
+  position: relative;
+  background: url('../../../public/assets/arrow.svg') no-repeat center;
+  background-size: cover;
+  width: 13px;
+  height: 10px;
+  transform: rotate(-90deg);
+}
+.button__none{
+  cursor: default;
+  background: rgb(226, 226, 226);
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+@keyframes animationsFavorite {
+  0% {
+    width: 40px;
+    height: 40px;
+  }
+  50%{
+    width: 0px;
+    height: 0px;
+  }
+  100%{
+    width: 40px;
+    height: 40px;
+  }
+}
